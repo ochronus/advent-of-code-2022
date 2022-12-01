@@ -2,16 +2,16 @@ package days
 
 class Day1 : Day(1) {
 
+    private var elves: List<Elf> = emptyList()
+
+    private data class Elf(val calories: List<Int>)
+
     override fun partOne(): Any {
-        return inputList.take(2)
-            .map { it.uppercase() }
-            .joinToString(" ")
+        elves = inputString.split("\n\n").map { group -> Elf(group.split("\n").filter { it.length > 0 }.map { it.toInt() }) }
+        return elves.maxOf { it.calories.sum() }
     }
 
     override fun partTwo(): Any {
-        return inputString.split("\n")
-            .filterNot { it.isEmpty() }
-            .map { it.uppercase() }
-            .last()
+        return elves.map { it.calories.sum() }.sortedDescending().take(3).sum()
     }
 }
