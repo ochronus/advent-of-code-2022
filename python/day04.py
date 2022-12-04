@@ -1,8 +1,8 @@
 def getranges(line):
-    pair = line.split(",")
-    sec1 = list(map(int, pair[0].split("-")))
-    sec2 = list(map(int, pair[1].split("-")))
-    return (set(range(sec1[0], sec1[1] + 1)), set(range(sec2[0], sec2[1] + 1)))
+    return [
+        set(range(sec[0], sec[1] + 1))
+        for sec in [list(map(int, p.split("-"))) for p in line.split(",")]
+    ]
 
 
 with open("../input/day04.txt", "r") as f:
