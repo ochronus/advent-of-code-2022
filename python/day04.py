@@ -9,9 +9,11 @@ with open("../input/day04.txt", "r") as f:
     pairs = [getranges(line) for line in f.readlines()]
 
 total = 0
-for pair in pairs:
-    if pair[0].issubset(pair[1]) or pair[1].issubset(pair[0]):
-        total += 1
+[
+    total := total + 1
+    for pair in pairs
+    if pair[0].issubset(pair[1]) or pair[1].issubset(pair[0])
+]
 print(total)
 
 
