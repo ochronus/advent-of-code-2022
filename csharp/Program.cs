@@ -6,7 +6,7 @@ namespace aoc2022
     {
         static void Main(string[] args)
         {
-            var day = new Day03();
+            var day = new Day04();
             Console.WriteLine(day.Part1());
             Console.WriteLine(day.Part2());
         }
