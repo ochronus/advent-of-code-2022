@@ -1,12 +1,11 @@
-def getranges(line):
-    return [
-        set(range(sec[0], sec[1] + 1))
-        for sec in [list(map(int, p.split("-"))) for p in line.split(",")]
-    ]
-
-
 with open("../input/day04.txt", "r") as f:
-    pairs = [getranges(line) for line in f.readlines()]
+    pairs = [
+        [
+            set(range(sec[0], sec[1] + 1))
+            for sec in [list(map(int, p.split("-"))) for p in line.split(",")]
+        ]
+        for line in f.readlines()
+    ]
 
 total = 0
 [
